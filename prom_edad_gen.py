@@ -6,9 +6,9 @@ def promedio_edad_por_genero():
     todas_edades = []   # Lista con tuplas (nombre completo, edad) de todos los afiliados
 
     # Recorremos todos los afiliados en la lista principal
-    for af in Afiliados:
-        edad = calcular_edad(af["FechaNacimiento"])   # Calculamos la edad del afiliado
-        genero = af["Genero"].upper()                 # Aseguramos que la letra esté en mayúscula con .upper
+    for af in afiliados:
+        edad = calcular_edad(af["fecha de nacimiento"])   # Calculamos la edad del afiliado
+        genero = af["genero"].upper()                     # Aseguramos que la letra esté en mayúscula con .upper
 
         # Clasificamos la edad según el género
         if genero == "M":
@@ -17,14 +17,14 @@ def promedio_edad_por_genero():
             edades_F.append(edad)
 
         # Guardamos en la lista general el nombre completo + la edad
-        nombre = af["Nombres"] + " " + af["Apellidos"]   # accede a nombre en afiliados y unimos nombres y apellidos con separacion de con un espacio en medio 
+        nombre = af["nombres"] + " " + af["apellidos"]   # unimos nombres y apellidos con separacion de " "
         todas_edades.append((nombre, edad))              # Ejemplo: ("Felipe Castro", 18)
 
     print("\n--- PROMEDIO DE EDAD POR GÉNERO ---")   #Mostramos promedio y mediante \n saltamos un renglon
 
     if edades_M:   # Si hay hombres en la lista
         prom_M = sum(edades_M) / len(edades_M)   # Sacamos el promedio
-        print("Hombres (M):", round(prom_M, 1), "años en promedio")   #usamos round para redondear la cifra 
+        print("Hombres (M):", round(prom_M, 1), "años en promedio")
     else:
         print("Hombres (M): sin afiliados")           #Si no hay
 
